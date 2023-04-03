@@ -1,0 +1,23 @@
+<app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
+<!-- <app-missiondetails [selectedMission]="selectedMission"></app-missiondetails> -->
+<mat-accordion class="mission-list">
+  <mat-expansion-panel
+    *ngFor="let launch of launches"
+    (opened)="selectMission(launch)"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ launch.mission_name }}
+      </mat-panel-title>
+      <mat-panel-description>
+        Launch Year: {{ launch.launch_year }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <img
+      [src]="launch.links.mission_patch_small"
+      alt="Mission Patch"
+      class="mission-image"
+    />
+    <p>Details: {{ launch.details }}</p>
+  </mat-expansion-panel>
+</mat-accordion>

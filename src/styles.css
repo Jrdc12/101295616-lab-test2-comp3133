@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add the import for Roboto font */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
+
+/* Add a space background image */
+body {
+  background-image: url("https://source.unsplash.com/1920x1080/?space");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+/* Style the app container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+}
+
+/* Style the mission list */
+.mission-list {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 1rem;
+}
+
+.mission-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 5px;
+}
