@@ -117,3 +117,14 @@ interface Links {
   youtube_id: string | null;
   flickr_images: string[];
 }
+
+// export interface Launch {
+//   flight_number: number;
+//   mission_name: string;
+//   launch_year: string;
+//   details: string;
+//   links: {
+//     mission_patch_small: string;
+//   };
+// }
+

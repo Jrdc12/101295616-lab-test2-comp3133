@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpacexService } from '../spacex.service';
-import { Launch } from '../launch.model'; 
+import { Launch } from '../launch.model';
+import { Router } from '@angular/router'; // Add this import
 
 @Component({
   selector: 'app-missionlist',
@@ -8,10 +9,11 @@ import { Launch } from '../launch.model';
   styleUrls: ['./missionlist.component.css'],
 })
 export class MissionlistComponent implements OnInit {
-  launches: Launch[] = []; 
+  launches: Launch[] = [];
   selectedMission: Launch | null = null;
 
-  constructor(private spacexService: SpacexService) {}
+  // Inject Router into the constructor
+  constructor(private spacexService: SpacexService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchLaunches();
@@ -27,7 +29,8 @@ export class MissionlistComponent implements OnInit {
     this.fetchLaunches(year === null ? undefined : year);
   }
 
-  selectMission(mission: Launch): void {
-    this.selectedMission = mission;
+  // Update selectMission to navigate to missiondetails component
+  selectMission(launch: Launch): void {
+    this.router.navigate(['/missiondetails', launch.flight_number]);
   }
 }

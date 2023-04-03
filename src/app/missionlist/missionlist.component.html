@@ -1,10 +1,6 @@
 <app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
-<!-- <app-missiondetails [selectedMission]="selectedMission"></app-missiondetails> -->
 <mat-accordion class="mission-list">
-  <mat-expansion-panel
-    *ngFor="let launch of launches"
-    (opened)="selectMission(launch)"
-  >
+  <mat-expansion-panel *ngFor="let launch of launches">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{ launch.mission_name }}
@@ -19,5 +15,8 @@
       class="mission-image"
     />
     <p>Details: {{ launch.details }}</p>
+    <app-missiondetails
+      [flightNumber]="launch.flight_number"
+    ></app-missiondetails>
   </mat-expansion-panel>
 </mat-accordion>
